@@ -1,6 +1,6 @@
 import { useRef, useState, type ReactNode, type CSSProperties, type RefObject } from 'react';
 import Draggable from 'react-draggable';
-import { ResizableBox } from 'react-resizable';
+import { ResizableBox, type ResizeCallbackData } from 'react-resizable';
 import 'react-resizable/css/styles.css';
 
 interface FloatingPanelProps {
@@ -50,7 +50,7 @@ export function FloatingPanel({
         <ResizableBox
           width={size.width}
           height={size.height}
-          onResize={(_, { size: s }) => setSize(s)}
+          onResize={(_e: React.SyntheticEvent, { size: s }: ResizeCallbackData) => setSize(s)}
           minConstraints={[200, 80]}
           maxConstraints={[1400, 1000]}
           resizeHandles={['se', 's', 'e']}
