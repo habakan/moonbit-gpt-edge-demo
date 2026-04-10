@@ -60,6 +60,20 @@ web/
 
 **モデルサイズ** (デフォルト): `n_layer=1  n_embd=32  n_head=4  block_size=8`
 
+## デモ
+
+**アーキテクチャ切り替え** — Enc-Dec と GPT モードの切り替え
+
+![arch](docs/demo-arch.gif)
+
+**埋め込み可視化** — トークン埋め込み + 位置埋め込みの PCA 軌跡
+
+![emb](docs/demo-emb.gif)
+
+**アブレーション実験** — スキップ / 位置埋め込み / アテンションを無効化
+
+![ablation](docs/demo-ablation.gif)
+
 ## WebAssembly FFI
 
 MoonBit は `--target wasm-gc` でコンパイルされます。関数は WASM エクスポートとして公開され、`WebAssembly.instantiateStreaming` 経由で JavaScript から直接呼び出されます。
@@ -132,20 +146,6 @@ moon test
 | MLP Activations | FC1 ReLU 活性化値 |
 | Next-word Predictions | 各位置のトップ k ロジット |
 | Training Dataset | 学習コーパスの確認・置き換え |
-
-## デモ
-
-**アーキテクチャ切り替え** — Enc-Dec と GPT モードの切り替え
-
-![arch](docs/demo-arch.gif)
-
-**埋め込み可視化** — トークン埋め込み + 位置埋め込みの PCA 軌跡
-
-![emb](docs/demo-emb.gif)
-
-**アブレーション実験** — スキップ / 位置埋め込み / アテンションを無効化
-
-![ablation](docs/demo-ablation.gif)
 
 ## 仕組み
 
