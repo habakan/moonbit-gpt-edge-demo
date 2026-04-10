@@ -125,12 +125,6 @@ export default function App() {
   const handleStart = useCallback(() => {
     ensureInit(currentGPT, runNetworkViz);
     setLossModalVisible(true);
-    setOpenPanels(prev => { const next = new Set(prev); next.add('panel-emb-pca'); next.add('panel-residual-pca'); return next; });
-    setPanelOrder(prev => {
-      const ids = ['panel-emb-pca', 'panel-residual-pca'];
-      const added = ids.filter(id => !prev.includes(id));
-      return added.length > 0 ? [...prev, ...added] : prev;
-    });
     start(srcPhraseRef.current, runAllViz, runEmbVizCallback);
   }, [ensureInit, currentGPT, runNetworkViz, start, runAllViz, runEmbVizCallback]);
 
