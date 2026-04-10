@@ -2,6 +2,8 @@
 
 [MoonBit](https://www.moonbitlang.com/) で書かれた Transformer の実装です。WebAssembly (wasm-gc) にコンパイルされ、ブラウザ上で完全に動作します。サーバー不要、Python 不要、GPU 不要。
 
+![demo](docs/demo-arch.gif)
+
 [English README](README.md)
 
 ## 特徴
@@ -130,6 +132,13 @@ moon test
 | MLP Activations | FC1 ReLU 活性化値 |
 | Next-word Predictions | 各位置のトップ k ロジット |
 | Training Dataset | 学習コーパスの確認・置き換え |
+
+## デモ
+
+| アーキテクチャ切り替え | 埋め込み可視化 | アブレーション実験 |
+|:-:|:-:|:-:|
+| ![arch](docs/demo-arch.gif) | ![emb](docs/demo-emb.gif) | ![ablation](docs/demo-ablation.gif) |
+| Enc-Dec と GPT モードの切り替え | トークン埋め込み + 位置埋め込みの PCA 軌跡 | スキップ / 位置埋め込み / アテンションを無効化 |
 
 ## 仕組み
 
