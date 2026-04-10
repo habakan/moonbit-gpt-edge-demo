@@ -82,7 +82,7 @@ let _exports: WasmExports | null = null;
 // Load the wasm module. Call loadMoonbit() and await before checking isMbtReady().
 export async function loadMoonbit(): Promise<void> {
   const result = await WebAssembly.instantiateStreaming(
-    fetch('/moonbit.wasm'),
+    fetch(import.meta.env.BASE_URL + 'moonbit.wasm'),
     {}
   );
   _exports = result.instance.exports as unknown as WasmExports;
