@@ -135,10 +135,17 @@ moon test
 
 ## デモ
 
-| アーキテクチャ切り替え | 埋め込み可視化 | アブレーション実験 |
-|:-:|:-:|:-:|
-| ![arch](docs/demo-arch.gif) | ![emb](docs/demo-emb.gif) | ![ablation](docs/demo-ablation.gif) |
-| Enc-Dec と GPT モードの切り替え | トークン埋め込み + 位置埋め込みの PCA 軌跡 | スキップ / 位置埋め込み / アテンションを無効化 |
+**アーキテクチャ切り替え** — Enc-Dec と GPT モードの切り替え
+
+![arch](docs/demo-arch.gif)
+
+**埋め込み可視化** — トークン埋め込み + 位置埋め込みの PCA 軌跡
+
+![emb](docs/demo-emb.gif)
+
+**アブレーション実験** — スキップ / 位置埋め込み / アテンションを無効化
+
+![ablation](docs/demo-ablation.gif)
 
 ## 仕組み
 
