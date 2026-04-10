@@ -4228,7 +4228,7 @@ pub fn draw_residual_pca(w : Double, h : Double, dpr : Double) -> Array[Double] 
   let vocab = g_vocab.val
   let vs = vocab.length()
   let wte = g_wte.val
-  let wpe = g_wpe_enc.val
+  let wpe = if g_gpt_mode.val { g_wpe_dec.val } else { g_wpe_enc.val }
 
   let mean_px = g_pca_norm_mean_px.val
   let mean_py = g_pca_norm_mean_py.val

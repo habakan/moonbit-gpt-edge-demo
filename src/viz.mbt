@@ -87,27 +87,21 @@ pub fn get_viz_logits_flat() -> Array[Double] { g_viz_logits.val }
 // Layout: [n_steps × seq × n_embd]
 // ---------------------------------------------------------------------------
 
-// pos emb path viz: src token IDs for the current phrase を保存するだけ
+// pos emb path viz: save token IDs for the current phrase (enc-dec: with BOS, GPT: no BOS)
 pub fn run_residual_viz(phrase : String) -> Unit {
-  if g_gpt_mode.val {
-    g_viz_src_toks.val = []
-    return
-  }
-  let bos = g_bos.val
   let w2i = g_word2idx.val
-  let src_toks : Array[Int] = [bos]
+  let toks : Array[Int] = []
+  if not(g_gpt_mode.val) {
+    toks.push(g_bos.val)
+  }
   for word in split_words(phrase) {
     match w2i.get(word) {
-      Some(idx) => src_toks.push(idx)
+      Some(idx) => toks.push(idx)
       None => ()
     }
   }
-  let seq = if block_size < src_toks.length() {
-    block_size
-  } else {
-    src_toks.length()
-  }
-  g_viz_src_toks.val = src_toks[0:seq].to_array()
+  let seq = if block_size < toks.length() { block_size } else { toks.length() }
+  g_viz_src_toks.val = toks[0:seq].to_array()
 }
 
 // ---------------------------------------------------------------------------
