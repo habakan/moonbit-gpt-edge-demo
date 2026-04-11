@@ -2,6 +2,8 @@
 
 [MoonBit](https://www.moonbitlang.com/) で書かれた Transformer の実装です。WebAssembly (wasm-gc) にコンパイルされ、ブラウザ上で完全に動作します。サーバー不要、Python 不要、GPU 不要。
 
+**[ライブデモ](https://habakan.github.io/moonbit-gpt-edge-demo/)**
+
 ![demo](docs/demo-arch.gif)
 
 [English README](README.md)
@@ -61,6 +63,8 @@ web/
 **モデルサイズ** (デフォルト): `n_layer=1  n_embd=32  n_head=4  block_size=8`
 
 ## デモ
+
+> **注意:** モデルは英語の料理レシピ文 50 件で学習されています（`src/config.mbt` にハードコード）。入力フィールドには料理に関連する英語のテキストを入力してください。
 
 **アーキテクチャ切り替え** — Enc-Dec と GPT モードの切り替え
 
